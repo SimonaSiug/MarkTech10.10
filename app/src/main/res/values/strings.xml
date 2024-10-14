@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MarkTech10.10</string>
+    <string name="message_not_implemented">Not implemented</string>
+    <string-array name="counting_options">
+        <item>Chars</item>
+        <item>Words</item>
+    </string-array>
+</resources>
