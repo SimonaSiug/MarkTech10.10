@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,14 +42,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnCountClick(View view) {
-        String notImplemented = getResources().getString(R.string.message_not_implemented) ;
-        if (this.spCountOptions.getSelectedItem().toString().equals("Chars")) {
-            String userInputPhrase = this.edUserInput.getText().toString();
-            int result = TextCounter.getCharsCount(userInputPhrase);
-            this.tvResult.setText(String.valueOf(result));
+        String userInputText = edUserInput.getText().toString().trim();
+
+        if (userInputText.isEmpty()) {
+            Toast.makeText(this, getString(R.string.toast_empty_input), Toast.LENGTH_SHORT).show();
+            return;
         }
-        else{
-            this.tvResult.setText(R.string.message_not_implemented);
+        String selectedOption = spCountOptions.getSelectedItem().toString();
+        int result = 0;
+        if (selectedOption.equals(getString(R.string.option_chars))) {
+            result = TextCounter.getCount(userInputText, true);
+        } else if (selectedOption.equals(getString(R.string.option_words))) {
+            result = TextCounter.getCount(userInputText, false);
         }
+
+        tvResult.setText(String.valueOf(result));
     }
 }

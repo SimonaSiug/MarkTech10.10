@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">MarkTech10.10</string>
     <string name="message_not_implemented">Not implemented</string>
+    <string name="toast_empty_input">Please enter some text!</string>
+    <string name="count">Count</string>
+    <string name="enter_text">Enter your text</string>
+    <string name="option_chars">Chars</string>
+    <string name="option_words">Words</string>
     <string-array name="counting_options">
-        <item>Chars</item>
-        <item>Words</item>
+        <item>@string/option_chars</item>
+        <item>@string/option_words</item>
     </string-array>
 </resources>
+
